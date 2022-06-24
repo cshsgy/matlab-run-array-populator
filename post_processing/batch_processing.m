@@ -36,4 +36,5 @@ while sum(flags)>0
     enceladus_post_process(file_list_set);
 end
 
-system("zip -q output_figures *.png")
+system("zip -q output_figures.zip *.png")
+system("rm -f *.png");
