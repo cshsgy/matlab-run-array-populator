@@ -1,7 +1,8 @@
 collate_axis = 1; % the axis to collate, like run_1_1_1 and run_1_1_2 then we have axis 3
 
 % Process the files in batch after HPC run
-filn = dir('../run_array/');
+fold = '../run_array/';
+filn = dir(fold);
 
 tmp = split(filn(3).name,'_');
 tmp = tmp(2:end); % remove 'run'
@@ -29,7 +30,7 @@ while sum(flags)>0
         if sum(val_matrix([1:collate_axis-1 collate_axis+1:length(tmp)],i)...
             ==val_matrix([1:collate_axis-1 collate_axis+1:length(tmp)],ref))...
             ==length(val_matrix([1:collate_axis-1 collate_axis+1:length(tmp)],i))
-            file_list_set{end+1} = filn(i+2).name;
+            file_list_set{end+1} = strcat(fold,filn(i+2).name);
             flags(i) = 0;
         end
     end

@@ -3,7 +3,7 @@ function enceladus_post_process(folder_list)
     hold on;
     legends = {};
     for i=1:length(folder_list)
-        filn = strcat('../',folder_list{i},'/run_results.mat');
+        filn = strcat(folder_list{i},'/run_results.mat');
         load(filn,'Period','time_rec','phi_rec','width_rec');
         [phi_day,time_day] = accum_last_days(Period,time_rec,smooth(phi_rec.*width_rec*520000,100),5);
         plot(time_day,smooth(phi_day,100),'linewidth',2); % 
