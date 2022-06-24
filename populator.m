@@ -1,3 +1,6 @@
+% Clean up
+system('rm -rf run_array');
+system('rm -f run_script.com');
 %% Options
 hpc = 1; % Yield HPC script if 1
 multiplicate = 1; % multiplicate each dimension up if 1
@@ -49,3 +52,4 @@ for i=1:length(file_list)
     fprintf(fid,'\n');
 end
 fclose(fid);
+

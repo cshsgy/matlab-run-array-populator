@@ -1,4 +1,5 @@
-collate_axis = 1; % the axis to collate, like run_1_1_1 and run_1_1_2 then we have axis 3
+system("rm -f output_figures.zip")
+collate_axis = 2; % the axis to collate, like run_1_1_1 and run_1_1_2 then we have axis 3
 
 % Process the files in batch after HPC run
 fold = '../run_array/';
