@@ -1,3 +1,6 @@
+% Clean up
+system('rm -rf run_array');
+system('rm -f run_script.com');
 %% Options
 hpc = 1; % Yield HPC script if 1
 multiplicate = 1; % multiplicate each dimension up if 1
@@ -32,8 +35,8 @@ lines = {
 '## /SBATCH -p general # partition (queue)\n',
 '## /SBATCH -o slurm.%%N.%%j.out # STDOUT\n',
 '## /SBATCH -e slurm.%%N.%%j.err # STDERR\n',
-'module load matlab/R2020a \n',
-'cp folder_to_solvers/*.m ./',
+'module load matlab/r2020b \n',
+'cp /home/sihechen/csh/Enceladus/2022_Jun_23_Single_Func_Solver/*.m ./',
 'matlab -nodisplay -r "composed_main_func(min_wid,wid_ratio,depth); exit;" \n'};
 file_list = file_array_generator(lines,param_names,param_values,'run_array/run',hpc);
 for i=1:length(file_list)
@@ -49,3 +52,4 @@ for i=1:length(file_list)
     fprintf(fid,'\n');
 end
 fclose(fid);
+
