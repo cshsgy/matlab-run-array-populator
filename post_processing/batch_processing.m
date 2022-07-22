@@ -1,4 +1,3 @@
-system("rm -f output_figures.zip")
 collate_axis = 2; % the axis to collate, like run_1_1_1 and run_1_1_2 then we have axis 3
 
 % Process the files in batch after HPC run
@@ -38,5 +37,3 @@ while sum(flags)>0
     enceladus_post_process(file_list_set);
 end
 
-system("zip -q output_figures.zip *.png")
-system("rm -f *.png");
